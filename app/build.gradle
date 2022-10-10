@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
 }
 
+apply plugin: 'maven-publish'
+
 android {
     compileSdk 32
 
