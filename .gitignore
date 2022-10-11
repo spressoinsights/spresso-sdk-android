@@ -12,3 +12,5 @@ Thumbs.db
 build
 .classpath
 .project
+/.idea/gradle.xml
+/.idea/modules.xml
