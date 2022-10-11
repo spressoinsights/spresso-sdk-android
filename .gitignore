@@ -1,1 +1,14 @@
-/.idea
+# IDE project files
+*.iml
+*.ipr
+*.iws
+.idea/*
+!.idea/codeStyleSettings.xml
+.gradle
+/local.properties
+/.idea/workspace.xml
+.DS_Store
+Thumbs.db
+build
+.classpath
+.project

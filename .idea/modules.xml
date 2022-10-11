@@ -8,6 +8,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/spresso-sdk-android.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/spresso-sdk-android.app.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/spresso-sdk-android.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/spresso-sdk-android.app.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/spresso/spresso-sdk-android.spresso.iml" filepath="$PROJECT_DIR$/.idea/modules/spresso/spresso-sdk-android.spresso.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spresso/spresso-sdk-android.spresso.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/spresso/spresso-sdk-android.spresso.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spresso/spresso-sdk-android.spresso.main.iml" filepath="$PROJECT_DIR$/.idea/modules/spresso/spresso-sdk-android.spresso.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spresso/spresso-sdk-android.spresso.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/spresso/spresso-sdk-android.spresso.unitTest.iml" />
     </modules>
   </component>
 </project>
