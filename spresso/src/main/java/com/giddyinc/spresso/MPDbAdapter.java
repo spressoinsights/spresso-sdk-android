@@ -232,11 +232,17 @@ class MPDbAdapter {
 
             while (c.moveToNext()) {
                 if (c.isLast()) {
-                    last_id = c.getString(c.getColumnIndex("_id"));
+                    int index = c.getColumnIndex("_id");
+                    if (index >= 0) {
+                        last_id = c.getString(index);
+                    }
                 }
                 try {
-                    final JSONObject j = new JSONObject(c.getString(c.getColumnIndex(KEY_DATA)));
-                    arr.put(j);
+                    int index = c.getColumnIndex(KEY_DATA);
+                    if (index >= 0) {
+                        final JSONObject j = new JSONObject(c.getString(index));
+                        arr.put(j);
+                    }
                 } catch (final JSONException e) {
                     // Ignore this object
                 }

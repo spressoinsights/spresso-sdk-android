@@ -18,3 +18,6 @@ build
 /.idea/modules/app/spresso-sdk-android.app.androidTest.iml
 /.idea/modules/app/spresso-sdk-android.app.main.iml
 /.idea/modules/app/spresso-sdk-android.app.unitTest.iml
+/.gradle/7.3.3/checksums/checksums.lock
+/.gradle/7.3.3/checksums/md5-checksums.bin
+/.gradle/7.3.3/checksums/sha1-checksums.bin
