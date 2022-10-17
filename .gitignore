@@ -14,3 +14,7 @@ build
 .project
 /.idea/gradle.xml
 /.idea/modules.xml
+/.DS_Store
+/.idea/modules/app/spresso-sdk-android.app.androidTest.iml
+/.idea/modules/app/spresso-sdk-android.app.main.iml
+/.idea/modules/app/spresso-sdk-android.app.unitTest.iml

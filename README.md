@@ -1,1 +1,0 @@
-# spresso-sdk-android
