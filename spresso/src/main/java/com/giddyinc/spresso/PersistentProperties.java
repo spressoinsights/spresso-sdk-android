@@ -43,7 +43,7 @@ import org.json.JSONObject;
 
             final SharedPreferences.Editor editor = storedPreferences.edit();
             editor.remove("waiting_array");
-            editor.commit();
+            editor.apply();
         }
         return ret;
     }
@@ -56,7 +56,7 @@ import org.json.JSONObject;
             for (final Map.Entry<String, String> entry:properties.entrySet()) {
                 editor.putString(entry.getKey(), entry.getValue());
             }
-            editor.commit();
+            editor.apply();
             sReferrerPrefsDirty = true;
         }
     }
@@ -158,7 +158,7 @@ import org.json.JSONObject;
         try {
             final SharedPreferences prefs = mLoadStoredPreferences.get();
             final SharedPreferences.Editor prefsEdit = prefs.edit();
-            prefsEdit.clear().commit();
+            prefsEdit.clear().apply();
             readSuperProperties();
             readIdentities();
         } catch (final ExecutionException e) {
@@ -189,7 +189,7 @@ import org.json.JSONObject;
             final SharedPreferences prefs = mLoadStoredPreferences.get();
             final SharedPreferences.Editor editor = prefs.edit();
             editor.putString("push_id", registrationId);
-            editor.commit();
+            editor.apply();
         } catch (final ExecutionException e) {
             Log.e(LOGTAG, "Can't write push id to shared preferences", e.getCause());
         } catch (final InterruptedException e) {
@@ -202,7 +202,7 @@ import org.json.JSONObject;
             final SharedPreferences prefs = mLoadStoredPreferences.get();
             final SharedPreferences.Editor editor = prefs.edit();
             editor.remove("push_id");
-            editor.commit();
+            editor.apply();
         } catch (final ExecutionException e) {
             Log.e(LOGTAG, "Can't write push id to shared preferences", e.getCause());
         } catch (final InterruptedException e) {
@@ -310,7 +310,7 @@ import org.json.JSONObject;
             final SharedPreferences prefs = mLoadStoredPreferences.get();
             final SharedPreferences.Editor editor = prefs.edit();
             editor.putString("super_properties", props);
-            editor.commit();
+            editor.apply();
         } catch (final ExecutionException e) {
             Log.e(LOGTAG, "Cannot store superProperties in shared preferences.", e.getCause());
         } catch (final InterruptedException e) {
@@ -408,7 +408,7 @@ import org.json.JSONObject;
             else {
                 prefsEditor.putString("waiting_array", mWaitingPeopleRecords.toString());
             }
-            prefsEditor.commit();
+            prefsEditor.apply();
         } catch (final ExecutionException e) {
             Log.e(LOGTAG, "Can't write distinct ids to shared preferences.", e.getCause());
         } catch (final InterruptedException e) {

@@ -1,5 +1,6 @@
 package com.giddyinc.spresso;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -74,6 +75,7 @@ class MPDbAdapter {
             mDatabaseFile.delete();
         }
 
+        @SuppressLint("SQLiteString")
         @Override
         public void onCreate(SQLiteDatabase db) {
             if (SpressoConfig.DEBUG) Log.d(LOGTAG, "Creating a new Spresso events DB");
@@ -84,6 +86,7 @@ class MPDbAdapter {
             db.execSQL(PEOPLE_TIME_INDEX);
         }
 
+        @SuppressLint("SQLiteString")
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             if (SpressoConfig.DEBUG) Log.d(LOGTAG, "Upgrading app, replacing Spresso events DB");

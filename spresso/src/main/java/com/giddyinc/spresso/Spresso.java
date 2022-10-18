@@ -763,7 +763,7 @@ public class Spresso {
         @Override
         public void trackCharge(double amount, JSONObject properties) {
             final Date now = new Date();
-            final DateFormat dateFormat = new SimpleDateFormat(ENGAGE_DATE_FORMAT_STRING);
+            final SimpleDateFormat dateFormat = new SimpleDateFormat(ENGAGE_DATE_FORMAT_STRING);
             dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
             
             try {
