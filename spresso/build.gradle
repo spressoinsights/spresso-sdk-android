@@ -47,8 +47,10 @@ publishing {
             groupId 'com.giddyinc.spresso_sdk_android'
             artifactId 'spresso'
             version '0.2.6'
-            artifact(sourceJar)
-            artifact("$buildDir/outputs/aar/spresso-release.aar")
+
+            afterEvaluate {
+                from components.release
+            }
         }
     }
     repositories {
