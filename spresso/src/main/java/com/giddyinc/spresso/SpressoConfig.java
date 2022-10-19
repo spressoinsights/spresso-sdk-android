@@ -29,9 +29,9 @@ import android.util.Log;
         mDisableFallback = true;
         
         if (debug) {
-            mEventsEndpoint = "https://vpc-staging-spresso-collector-public.myboxed.com.my/track";
+            mEventsEndpoint = "https://public-pensieve-stats.us-east4.staging.spresso.com/track";
         } else {
-            mEventsEndpoint = "https://stats.myboxed.com.my/track";
+            mEventsEndpoint = "https://public-pensieve-stats.us-east4.prod.spresso.com/track";
         }
         
         mEventsFallbackEndpoint = mEventsEndpoint;
