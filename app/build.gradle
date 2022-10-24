@@ -7,7 +7,7 @@ android {
     compileSdk 30
 
     defaultConfig {
-        applicationId "com.giddyinc.spresso_sdk_android"
+        applicationId "com.spressoinsights.spresso_sdk_android"
         minSdk 19
         targetSdk 30
         versionCode 1

@@ -1,11 +1,11 @@
-package com.giddyinc.spresso;
+package com.spressoinsights.spresso;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.provider.Settings.Secure;
 import android.util.Log;
-import java.text.DateFormat;
+
 import java.text.SimpleDateFormat;
 import java.util.ConcurrentModificationException;
 import java.util.Date;

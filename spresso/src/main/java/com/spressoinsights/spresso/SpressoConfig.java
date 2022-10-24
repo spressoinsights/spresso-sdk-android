@@ -1,4 +1,4 @@
-package com.giddyinc.spresso;
+package com.spressoinsights.spresso;
 
 import android.content.Context;
 import android.util.Log;

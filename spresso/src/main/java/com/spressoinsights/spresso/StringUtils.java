@@ -1,4 +1,4 @@
-package com.giddyinc.spresso;
+package com.spressoinsights.spresso;
 
 import java.io.BufferedReader;
 import java.io.IOException;

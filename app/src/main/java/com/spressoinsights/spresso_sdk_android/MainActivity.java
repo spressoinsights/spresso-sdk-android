@@ -1,4 +1,4 @@
-package com.giddyinc.spresso_sdk_android;
+package com.spressoinsights.spresso_sdk_android;
 
 import androidx.appcompat.app.AppCompatActivity;
 

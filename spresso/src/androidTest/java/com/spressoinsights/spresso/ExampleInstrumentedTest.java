@@ -1,4 +1,4 @@
-package com.giddyinc.spresso;
+package com.spressoinsights.spresso;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.giddyinc.spresso.test", appContext.getPackageName());
+        assertEquals("com.spressoinsights.spresso.test", appContext.getPackageName());
     }
 }
