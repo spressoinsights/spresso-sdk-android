@@ -49,16 +49,15 @@ import org.json.JSONObject;
         private final Status mStatus;
     }
 
-    public Result postData(String rawMessage, String endpointUrl, String fallbackUrl) {
+    public Result postData(String rawMessage, String endpointUrl, String fallbackUrl, String orgId) {
         Status status = Status.FAILED_UNRECOVERABLE;
-       // final String encodedData = Base64Coder.encodeString(rawMessage);
         String encodedData = rawMessage;
         final List<ContentValues> nameValuePairs = new ArrayList<ContentValues>(1);
         ContentValues value = new ContentValues();
         value.put("datas", encodedData);
         nameValuePairs.add(value);
 
-        final Result baseResult = performRequest(endpointUrl, nameValuePairs, "{\"datas\":" + encodedData + "}");
+        final Result baseResult = performRequest(endpointUrl, nameValuePairs, "{\"datas\":" + encodedData + "}", orgId);
         final Status baseStatus = baseResult.getStatus();
         String response = baseResult.getResponse();
         if (baseStatus == Status.SUCCEEDED) {
@@ -81,7 +80,7 @@ import org.json.JSONObject;
 
         if (baseStatus == Status.FAILED_RECOVERABLE && fallbackUrl != null) {
             if (SpressoConfig.DEBUG) Log.d(LOGTAG, "Retrying post with new URL: " + fallbackUrl);
-            final Result retryResult = postData(rawMessage, fallbackUrl, null);
+            final Result retryResult = postData(rawMessage, fallbackUrl, null, orgId);
             final Status retryStatus = retryResult.getStatus();
             response = retryResult.getResponse();
             if (retryStatus != Status.SUCCEEDED) {
@@ -95,7 +94,7 @@ import org.json.JSONObject;
     }
 
     public Result get(String endpointUrl, String fallbackUrl) {
-        Result ret = performRequest(endpointUrl, null, null);
+        Result ret = performRequest(endpointUrl, null, null, null);
         if (ret.getStatus() == Status.FAILED_RECOVERABLE && fallbackUrl != null) {
             ret = get(fallbackUrl, null);
         }
@@ -108,7 +107,7 @@ import org.json.JSONObject;
      *
      * Will POST if nameValuePairs is not null.
      */
-    private Result performRequest(String endpointUrl, List<ContentValues> nameValuePairs, String rawData) {
+    private Result performRequest(String endpointUrl, List<ContentValues> nameValuePairs, String rawData, String orgId) {
         Status status = Status.FAILED_UNRECOVERABLE;
         String response = null;
         try {
@@ -134,6 +133,9 @@ import org.json.JSONObject;
                         connection.setRequestMethod("POST");
                         connection.setRequestProperty("Content-Type", "application/json");
                         connection.setRequestProperty("Accept", "application/json");
+                        if (orgId != null) {
+                            connection.setRequestProperty("org-id", orgId);
+                        }
                         connection.setFixedLengthStreamingMode(rawDataByte.length);
                         out = connection.getOutputStream();
                         bout = new BufferedOutputStream(out);

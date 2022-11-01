@@ -370,7 +370,7 @@ import org.json.JSONObject;
                     final String lastId = eventsData[0];
                     final String rawMessage = eventsData[1];
                     final ServerMessage poster = getPoster();
-                    final ServerMessage.Result eventsPosted = poster.postData(rawMessage, endpointUrl, fallbackUrl);
+                    final ServerMessage.Result eventsPosted = poster.postData(rawMessage, endpointUrl, fallbackUrl, getOrgId());
                     final ServerMessage.Status postStatus = eventsPosted.getStatus();
 
                     if (postStatus == ServerMessage.Status.SUCCEEDED) {
@@ -499,12 +499,21 @@ import org.json.JSONObject;
 		AnalyticsMessages.sendingEnabled = sendingEnabled;
 	}
 
+    public String getOrgId() {
+        return mOrgId;
+    }
+
+    public void setOrgId(String orgId) {
+        this.mOrgId = orgId;
+    }
+
 	// Used across thread boundaries
     private final AtomicBoolean mLogSpressoMessages;
     private final Worker mWorker;
     private final Context mContext;
     private static boolean sendingEnabled = true;
     private final SpressoConfig mConfig;
+    private String mOrgId;
 
     // Messages for our thread
     private static int ENQUEUE_PEOPLE = 0; // submit events and people data

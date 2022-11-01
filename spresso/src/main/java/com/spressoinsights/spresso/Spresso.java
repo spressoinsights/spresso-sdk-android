@@ -88,6 +88,14 @@ public class Spresso {
      */
     public static final String VERSION = SpressoConfig.VERSION;
     private static final int SESSION_INACTIVITY_TIME = 5 * 60 * 1000; //5mins
+
+    public static final String SPRESSO_EVENT_CREATE_ORDER = "spresso_create_order";
+    public static final String SPRESSO_EVENT_GLIMPSE_PLE = "spresso_glimpse_ple";
+    public static final String SPRESSO_EVENT_GLIMPSE_PRODUCT_PLE = "spresso_glimpse_product_ple";
+    public static final String SPRESSO_EVENT_VIEW_PAGE = "spresso_page_view";
+    public static final String SPRESSO_EVENT_PURCHASE_VARIANT = "spresso_purchase_variant";
+    public static final String SPRESSO_EVENT_ADD_TO_CART = "spresso_tap_add_to_cart";
+    public static final String SPRESSO_EVENT_VIEW_PRODUCT = "spresso_view_pdp";
     
     
     Spresso(Context context, Future<SharedPreferences> referrerPreferences, String token, boolean debug) {
@@ -114,27 +122,28 @@ public class Spresso {
         //Log.i(LOGTAG,"AndroidID=" + androidId);
         mPersistentProperties.setDeviceId( (androidId != null ? androidId : getDistinctId()));
     }
-    
-    
-    public static Spresso getInstance(Context context, boolean isDebug) {
+
+    public static Spresso getInstance(Context context, String orgId, boolean isDebug) {
         if (null == context) {
             return null;
         }
         String token = "some token";
         mDebug = isDebug;
+        final AnalyticsMessages msgs = AnalyticsMessages.getInstance(context, mDebug);
+        msgs.setOrgId(orgId);
         synchronized (sInstanceMap) {
             final Context appContext = context.getApplicationContext();
-            
+
             if (null == sReferrerPrefs) {
                 sReferrerPrefs = sPrefsLoader.loadPreferences(context, SpressoConfig.REFERRER_PREFS_NAME, null);
             }
-            
+
             Map <Context, Spresso> instances = sInstanceMap.get(token);
             if (null == instances) {
                 instances = new HashMap<Context, Spresso>();
                 sInstanceMap.put(token, instances);
             }
-    
+
             Spresso instance = instances.get(appContext);
             if (null == instance) {
                 instance = new Spresso(appContext, sReferrerPrefs, token, isDebug);
