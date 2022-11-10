@@ -92,7 +92,7 @@ public class Spresso {
     public static final String SPRESSO_EVENT_CREATE_ORDER = "spresso_create_order";
     public static final String SPRESSO_EVENT_GLIMPSE_PLE = "spresso_glimpse_ple";
     public static final String SPRESSO_EVENT_GLIMPSE_PRODUCT_PLE = "spresso_glimpse_product_ple";
-    public static final String SPRESSO_EVENT_VIEW_PAGE = "spresso_page_view";
+    public static final String SPRESSO_EVENT_VIEW_PAGE = "spresso_screen_view";
     public static final String SPRESSO_EVENT_PURCHASE_VARIANT = "spresso_purchase_variant";
     public static final String SPRESSO_EVENT_ADD_TO_CART = "spresso_tap_add_to_cart";
     public static final String SPRESSO_EVENT_VIEW_PRODUCT = "spresso_view_pdp";
