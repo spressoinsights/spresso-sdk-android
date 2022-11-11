@@ -9,7 +9,7 @@ import android.util.Log;
  * May be overridden to achieve custom behavior.
  */
 /* package */ class SpressoConfig {
-    public static final String VERSION = "0.3.5";
+    public static final String VERSION = "0.3.6";
     
     // Set to true to see lots of internal debugging logcat output.
     // This should be set to false in production builds
