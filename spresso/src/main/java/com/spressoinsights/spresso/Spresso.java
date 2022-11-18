@@ -13,7 +13,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TimeZone;
-import java.util.UUID;
 import java.util.concurrent.Future;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -292,8 +291,6 @@ public class Spresso {
             if (sessionId != null) {
                 messageProps.put("sessionId", sessionId);
             }
-            messageProps.put("uid", UUID.randomUUID().toString());
-            messageProps.put("timezoneOffsetms", TimeZone.getDefault().getOffset(System.currentTimeMillis()));
             
             if (null != properties) {
                 final Iterator<?> propIter = properties.keys();

@@ -15,6 +15,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.TimeZone;
+import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -454,6 +456,8 @@ import org.json.JSONObject;
                 eventObj.put("utcTimestampMs", eventDescription.getTimeInMs());
                 eventObj.put("v", eventDescription.getV());
                 eventObj.put("deviceId", eventDescription.getDeviceId());
+                eventObj.put("uid", UUID.randomUUID().toString());
+                eventObj.put("timezoneOffset", TimeZone.getDefault().getOffset(System.currentTimeMillis()));
 
                 return eventObj;
             }
