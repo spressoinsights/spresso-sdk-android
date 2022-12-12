@@ -346,7 +346,22 @@ import org.json.JSONObject;
         }
         mUserId = u;
         writeIdentities();		
-	}	
+	}
+
+    public String getRefUserId() {
+        if (! mIdentitiesLoaded) {
+            readIdentities();
+        }
+        return mRefUserId;
+    }
+
+    public void setRefUserId(String u) {
+        if (! mIdentitiesLoaded) {
+            readIdentities();
+        }
+        mRefUserId = u;
+        writeIdentities();
+    }
 
 	private void readIdentities() {
         SharedPreferences prefs = null;
@@ -366,6 +381,7 @@ import org.json.JSONObject;
         mPeopleDistinctId = prefs.getString("people_distinct_id", null);
         mDeviceId = prefs.getString("device_id", null);
         mUserId = prefs.getString("user_id", null);
+        mRefUserId = prefs.getString("ref_user_id", null);
         mWaitingPeopleRecords = null;
 
         final String storedWaitingRecord = prefs.getString("waiting_array", null);
@@ -401,6 +417,7 @@ import org.json.JSONObject;
             prefsEditor.putString("people_distinct_id", mPeopleDistinctId);
             prefsEditor.putString("device_id", mDeviceId);
             prefsEditor.putString("user_id", mUserId);
+            prefsEditor.putString("ref_user_id", mRefUserId);
             
             if (mWaitingPeopleRecords == null) {
                 prefsEditor.remove("waiting_array");
@@ -426,6 +443,7 @@ import org.json.JSONObject;
     private String mPeopleDistinctId;
     private String mDeviceId;
     private String mUserId;
+    private String mRefUserId;
     private JSONArray mWaitingPeopleRecords;
 
     private static boolean sReferrerPrefsDirty = true;

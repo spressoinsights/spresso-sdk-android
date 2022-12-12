@@ -236,7 +236,11 @@ public class Spresso {
         //mPersistentProperties.setEventsDistinctId(distinctId);
         mPersistentProperties.setUserId(u);
     }
-    
+
+    public void identifyRefUser(String u) {
+        mPersistentProperties.setRefUserId(u);
+    }
+
     /**
      * Track an event.
      *
@@ -284,6 +288,9 @@ public class Spresso {
                 messageProps.put("isLoggedIn", true);
             } else {
                 messageProps.put("isLoggedIn", false);
+            }
+            if (getRefUserId() != null) {
+                messageProps.put("refUserId", getRefUserId());
             }
             messageProps.put("deviceId", getDeviceId());
             
@@ -351,7 +358,11 @@ public class Spresso {
     public String getUserId() {
         return mPersistentProperties.getUserId();
     }
-    
+
+    public String getRefUserId() {
+        return mPersistentProperties.getRefUserId();
+    }
+
     public String getDeviceId() {
         return mPersistentProperties.getDeviceId();
     }
