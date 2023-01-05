@@ -17,7 +17,7 @@ Spresso mSpresso = Spresso.getInstance(context, "<org_id>, "is_debug_boolean");
 If a user is available, you can specify it here
 
 ```
-mSpresso.identify("user_id");
+mSpresso.identify("<user_id>");
 ```
 
 ## Tracking Events
