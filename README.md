@@ -9,7 +9,7 @@ implementation 'com.github.spressoinsights:spresso-sdk-android:0.3.8'
 Initialize the library with your Org ID and if it's in debug mode.
 
 ```
-Spresso mSpresso = Spresso.getInstance(context, "<org_id>, "is_debug_boolean");
+Spresso mSpresso = Spresso.getInstance(context, "<org_id>, "<is_debug_boolean>");
 ```
 
 ## Setting a User
@@ -22,7 +22,7 @@ mSpresso.identify("<user_id>");
 
 ## Tracking Events
 
-Example of tracking viewing a product
+Example of sending data when a user views a product
 
 ```
 HashMap<String, Object> props = new HashMap<String, Object>();
