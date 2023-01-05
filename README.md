@@ -26,9 +26,9 @@ Example of tracking viewing a product
 
 ```
 HashMap<String, Object> props = new HashMap<String, Object>();
-props.put("variantSku", "<variant_sku>);
-props.put("variantName", "<variant_name>);
-props.put("variantPrice", "<variant_price>);
+props.put("variantSku", "<variant_sku>");
+props.put("variantName", "<variant_name>");
+props.put("variantPrice", "<variant_price>");
 JSONObject properties = new JSONObject(props);
 mSpresso.track(Spresso.SPRESSO_EVENT_VIEW_PRODUCT, properties);
 ```
