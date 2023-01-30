@@ -298,7 +298,9 @@ public class Spresso {
             if (sessionId != null) {
                 messageProps.put("sessionId", sessionId);
             }
-            
+            messageProps.put("platform", "Android");
+            messageProps.put("version", SpressoConfig.VERSION);
+
             if (null != properties) {
                 final Iterator<?> propIter = properties.keys();
                 while (propIter.hasNext()) {
