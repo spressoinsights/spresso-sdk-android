@@ -293,8 +293,7 @@ public class Spresso {
                 messageProps.put("refUserId", getRefUserId());
             }
             messageProps.put("deviceId", getDeviceId());
-            messageProps.put("spressoDeviceId", getSpressoDeviceId());
-
+            
             checkSessionId();
             if (sessionId != null) {
                 messageProps.put("sessionId", sessionId);
@@ -368,10 +367,6 @@ public class Spresso {
 
     public String getDeviceId() {
         return mPersistentProperties.getDeviceId();
-    }
-
-    public String getSpressoDeviceId() {
-        return mPersistentProperties.getSpressoDeviceId();
     }
     
     public void setDeviceID(String deviceId) {

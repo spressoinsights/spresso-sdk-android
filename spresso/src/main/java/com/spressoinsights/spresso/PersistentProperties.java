@@ -325,13 +325,6 @@ import org.json.JSONObject;
         return mDeviceId;
 	}
 
-    public String getSpressoDeviceId() {
-        if (! mIdentitiesLoaded) {
-            readIdentities();
-        }
-        return mSpressoDeviceId;
-    }
-
 	public void setDeviceId(String d) {
         if (! mIdentitiesLoaded) {
             readIdentities();
@@ -387,7 +380,6 @@ import org.json.JSONObject;
         mEventsDistinctId = prefs.getString("events_distinct_id", null);
         mPeopleDistinctId = prefs.getString("people_distinct_id", null);
         mDeviceId = prefs.getString("device_id", null);
-        mSpressoDeviceId = prefs.getString("spresso_device_id", null);
         mUserId = prefs.getString("user_id", null);
         mRefUserId = prefs.getString("ref_user_id", null);
         mWaitingPeopleRecords = null;
@@ -411,12 +403,7 @@ import org.json.JSONObject;
         	mDeviceId = mEventsDistinctId;
          //   mEventsDistinctId =  Secure.getString(getApplicationContext().getContentResolver(), Secure.ANDROID_ID); 
          	writeIdentities();
-         }
-
-        if (null == mSpressoDeviceId) {
-            mSpressoDeviceId = UUID.randomUUID().toString();
-            writeIdentities();
-        }
+         }        
 
         mIdentitiesLoaded = true;
     }
@@ -429,7 +416,6 @@ import org.json.JSONObject;
             prefsEditor.putString("events_distinct_id", mEventsDistinctId);
             prefsEditor.putString("people_distinct_id", mPeopleDistinctId);
             prefsEditor.putString("device_id", mDeviceId);
-            prefsEditor.putString("spresso_device_id", mSpressoDeviceId);
             prefsEditor.putString("user_id", mUserId);
             prefsEditor.putString("ref_user_id", mRefUserId);
             
@@ -456,7 +442,6 @@ import org.json.JSONObject;
     private String mEventsDistinctId;
     private String mPeopleDistinctId;
     private String mDeviceId;
-    private String mSpressoDeviceId;
     private String mUserId;
     private String mRefUserId;
     private JSONArray mWaitingPeopleRecords;
