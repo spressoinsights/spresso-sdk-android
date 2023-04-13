@@ -318,14 +318,14 @@ import org.json.JSONObject;
         }
     }
 
-    public String getDeviceId() {
+    public synchronized String getDeviceId() {
         if (! mIdentitiesLoaded) {
             readIdentities();
         }
         return mDeviceId;
 	}
 
-	public void setDeviceId(String d) {
+	public synchronized void setDeviceId(String d) {
         if (! mIdentitiesLoaded) {
             readIdentities();
         }
@@ -363,7 +363,7 @@ import org.json.JSONObject;
         writeIdentities();
     }
 
-	private void readIdentities() {
+	private synchronized void readIdentities() {
         SharedPreferences prefs = null;
         try {
             prefs = mLoadStoredPreferences.get();
@@ -408,7 +408,7 @@ import org.json.JSONObject;
         mIdentitiesLoaded = true;
     }
 
-    private void writeIdentities() {
+    private synchronized void writeIdentities() {
         try {
             final SharedPreferences prefs = mLoadStoredPreferences.get();
             final SharedPreferences.Editor prefsEditor = prefs.edit();
