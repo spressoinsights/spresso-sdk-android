@@ -117,10 +117,9 @@ public class Spresso {
         final Future<SharedPreferences> storedPreferences = sPrefsLoader.loadPreferences(context, "com.boxed.spresso.SpressoAPI_" + token, listener);
         mPersistentProperties = new PersistentProperties(referrerPreferences, storedPreferences);
         
-        String androidId = Secure.getString(context.getContentResolver(),
-                Secure.ANDROID_ID);
+        //String androidId = Secure.getString(context.getContentResolver(), Secure.ANDROID_ID);
         //Log.i(LOGTAG,"AndroidID=" + androidId);
-        mPersistentProperties.setDeviceId( (androidId != null ? androidId : getDistinctId()));
+        //mPersistentProperties.setDeviceId( (androidId != null ? androidId : getDistinctId()));
     }
 
     public static Spresso getInstance(Context context, String orgId, boolean isDebug) {
