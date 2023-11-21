@@ -9,7 +9,7 @@ import android.util.Log;
  * May be overridden to achieve custom behavior.
  */
 /* package */ class SpressoConfig {
-    public static final String VERSION = "1.2.2";
+    public static final String VERSION = "1.2.3";
     
     // Set to true to see lots of internal debugging logcat output.
     // This should be set to false in production builds
@@ -28,12 +28,8 @@ import android.util.Log;
         mDataExpiration = 1000 * 60 * 60 * 24 * 5; // 5 days default
         mDisableFallback = true;
         
-        if (debug) {
-            mEventsEndpoint = "https://public-pensieve-stats.us-east4.staging.spresso.com/track";
-        } else {
-            mEventsEndpoint = "https://public-pensieve-stats.us-east4.prod.spresso.com/track";
-        }
-        
+        mEventsEndpoint = (debug) ? "https://api.staging.spresso.com/pim/public/events" : "https://api.spresso.com/pim/public/events";
+
         mEventsFallbackEndpoint = mEventsEndpoint;
         
         if (debug) {
