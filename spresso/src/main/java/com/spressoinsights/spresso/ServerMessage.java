@@ -11,6 +11,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
@@ -73,7 +74,7 @@ import org.json.JSONObject;
                     status = Status.FAILED_UNRECOVERABLE;
                 }
             }
-            else if (response.equals("1\n")) {
+            else if (response.equals("")) {
                 status = Status.SUCCEEDED;
             }
         }
@@ -128,7 +129,7 @@ import org.json.JSONObject;
                     final URL url = new URL(endpointUrl);
                     connection = (HttpURLConnection) url.openConnection();
                     if (null != nameValuePairs) {
-                        byte[] rawDataByte = rawData.getBytes();
+                        byte[] rawDataByte = rawData.getBytes(StandardCharsets.UTF_8);
                         connection.setDoOutput(true);
                         connection.setDoInput(true);
                         connection.setRequestMethod("POST");
