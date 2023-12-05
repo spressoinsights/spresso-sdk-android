@@ -81,7 +81,7 @@ import android.util.Log;
     
     
     private final int mBulkUploadLimit;
-    private final int mFlushInterval;//
+    private final int mFlushInterval;
     private final int mDataExpiration;
     private final boolean mDisableFallback;
     private final String mEventsEndpoint;
