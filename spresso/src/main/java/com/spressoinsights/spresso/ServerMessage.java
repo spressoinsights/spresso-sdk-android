@@ -128,11 +128,11 @@ import org.json.JSONObject;
                     final URL url = new URL(endpointUrl);
                     connection = (HttpURLConnection) url.openConnection();
                     if (null != nameValuePairs) {
-                        byte[] rawDataByte = rawData.getBytes("UTF-16");
+                        byte[] rawDataByte = rawData.getBytes();
                         connection.setDoOutput(true);
+                        connection.setDoInput(true);
                         connection.setRequestMethod("POST");
                         connection.setRequestProperty("Content-Type", "application/json");
-                        connection.setRequestProperty("Accept", "application/json");
                         if (orgId != null) {
                             connection.setRequestProperty("org-id", orgId);
                         }
