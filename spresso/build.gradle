@@ -28,7 +28,7 @@ afterEvaluate {
 
                 group 'com.spressoinsights.spresso_sdk_android'
                 artifactId 'spresso'
-                version '1.2.4'
+                version '1.2.5'
             }
         }
         repositories {
